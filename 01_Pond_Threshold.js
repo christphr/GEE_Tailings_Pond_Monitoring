@@ -5,10 +5,10 @@ Min Beach Lengths to the crest line for earch pond are computed
 */
 
 //decalre the site name as a cleint side string:
-var siteName = "Input";
+var siteName = "Impala";
 
 // provide the tile name, important at tile overlaps
-var ESA_S2_MGRS_TILE = 'check_tile_name_in_metaData';
+var ESA_S2_MGRS_TILE = '35JNM';
 
 //Declare the senetinen-2 images to use as a server side list:
 var im_list = ee.List([
@@ -74,7 +74,7 @@ var addDate = function (image) {
 var collection = ee.ImageCollection('COPERNICUS/S2_SR')
   .filterDate('2019-01-01', '2022-01-31')
   .filterBounds(centr)
-  // fitler by the ESA Sentinel-2 tile (required wehre there is an overlap of tiles).
+  // filter by the ESA Sentinel-2 tile (required wehre there is an overlap of tiles).
   // Comment out if not required.
   // .filter(ee.Filter.eq('MGRS_TILE', ESA_S2_MGRS_TILE))
   .map(addDate);
@@ -255,10 +255,10 @@ var pondList0 = y1;
 var minBeachList0 = y2;
 
 
-//Repeat above procedure for each threshold
+//Repeat above procedure for each threshold value
 //Once complete for all threshold values
 
-//append new all data to arrays
+//append all data to arrays
 var pondArray = ee.Array.cat([
   pondList0,
   pondList1,
